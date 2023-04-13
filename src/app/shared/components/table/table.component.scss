@@ -1,0 +1,18 @@
+.table-container {
+  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.table-viewport {
+  overflow: auto;
+  max-width: 100%;
+}
+
+.header-row {
+  background-color: rgb(12, 177, 111);
+  th {
+    color: white;
+  }
+}

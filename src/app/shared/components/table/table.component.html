@@ -1,0 +1,18 @@
+<section class="table-container mat-elevation-z{{ options.matElevationIndex }}" tabindex="0">
+  <div class="table-viewport" [style]="{ width: options.viewport?.width ? options.viewport?.width : null, height: options.viewport?.height ? options.viewport?.height : null }">
+    <!-- Material Table -->
+    <table mat-table [dataSource]="dataSource">
+
+      <!-- Cells Definitions -->
+      <ng-container *ngFor="let col of columns, let i = index" [matColumnDef]="col.id">
+        <th mat-header-cell *matHeaderCellDef> {{ col.label }} </th>
+        <td mat-cell *matCellDef="let element"> {{ element[col.field] }} </td>
+      </ng-container>
+
+      <!-- Rows Definitions -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsIds; sticky: true" class="header-row"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumnsIds;"></tr>
+    </table>
+
+  </div>
+</section>
