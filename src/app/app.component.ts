@@ -1,3 +1,4 @@
+import { Sort } from '@angular/material/sort';
 import { Component } from '@angular/core';
 import { TableOptions } from './shared/components/table/services/table-options.service';
 import { Column } from './shared/components/table/table.interfaces';
@@ -22,8 +23,8 @@ export class AppComponent {
   ];
 
   columns: Column[] = [
-    { id: 'position', field: 'position', label: 'Position' },
-    { id: 'name', field: 'name', label: 'Name' },
+    { id: 'position', field: 'position', label: 'Position', sortable: true },
+    { id: 'name', field: 'name', label: 'Name', sortable: true },
     { id: 'weight', field: 'weight', label: 'Weight' },
     { id: 'symbol', field: 'symbol', label: 'Symbol' },
     { id: 'position1', field: 'position', label: 'Position' },
@@ -49,6 +50,10 @@ export class AppComponent {
   ];
 
   options: Partial<TableOptions> = { viewport: { height: '300px'}, matElevationIndex: 5 };
+
+  onSort(sort: Sort): void {
+    console.log('sort', sort);
+  }
 }
 
 export interface PeriodicElement {
