@@ -12,19 +12,25 @@ import { MatSortModule } from '@angular/material/sort';
   imports: [CommonModule, MatTableModule, MatSortModule],
   providers: [TableOptionsService],
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  styleUrls: ['./table.component.scss'],
 })
 export class TableComponent {
   /** Options **/
-  @Input() set options(value: Partial<TableOptions> | undefined) { this.optionsService.options = value; }
-  get options(): TableOptions { return this.optionsService.options; }
+  @Input() set options(value: Partial<TableOptions> | undefined) {
+    this.optionsService.options = value;
+  }
+  get options(): TableOptions {
+    return this.optionsService.options;
+  }
 
   /** Columns **/
   @Input() set columns(value: Column[] | undefined) {
     this._columns = value;
     if (!this.displayedColumnsIds) this.displayedColumnsIds = this._columns?.map((col: Column) => col.id);
   }
-  get columns(): Column[] | undefined { return this._columns; }
+  get columns(): Column[] | undefined {
+    return this._columns;
+  }
   private _columns: Column[] | undefined;
 
   @Input() displayedColumnsIds: string[] | undefined;
@@ -42,8 +48,9 @@ export class TableComponent {
   /**
    * TODO :
    * Formatters
-   * Sort with multi
    * Drag & Drop Columns position
+   * Sticky
+   * Sort with multi
    * delete $any template & undefined on all vars
    */
 }

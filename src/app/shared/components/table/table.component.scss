@@ -12,7 +12,8 @@
 
 .header-row {
   background-color: rgb(12, 177, 111);
-  th, ::ng-deep .mat-sort-header-arrow {
+  th,
+  ::ng-deep .mat-sort-header-arrow {
     color: white !important;
   }
 }

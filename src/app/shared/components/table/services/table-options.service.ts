@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
 export type TableOptions = {
-  matElevationIndex: number,
+  matElevationIndex: number;
   viewport?: {
-    width?: string,
-    height?: string,
-  }
-}
+    width?: string;
+    height?: string;
+  };
+};
 
 @Injectable()
 export class TableOptionsService {
@@ -14,12 +14,14 @@ export class TableOptionsService {
     if (!options) this._options = this.getDefaultOptions();
     else this._options = Object.assign(this.getDefaultOptions(), options); // TODO merge deep
   }
-  get options(): TableOptions { return this._options; }
+  get options(): TableOptions {
+    return this._options;
+  }
   private _options = this.getDefaultOptions();
 
   private getDefaultOptions(): TableOptions {
     return {
-      matElevationIndex: 2
+      matElevationIndex: 2,
     };
   }
 }

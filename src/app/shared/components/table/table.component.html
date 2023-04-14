@@ -2,17 +2,15 @@
   <div class="table-viewport" [style]="{ width: options.viewport?.width ? options.viewport?.width : null, height: options.viewport?.height ? options.viewport?.height : null }">
     <!-- Material Table -->
     <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortChange.emit($any($event))" [matSortActive]="$any(sortActiveColId)" [matSortDirection]="$any(sortActiveDirection)">
-
       <!-- Cells Definitions -->
-      <ng-container *ngFor="let col of columns, let i = index" [matColumnDef]="col.id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="!col.sortable"> {{ col.label }} </th>
-        <td mat-cell *matCellDef="let element"> {{ element[col.field] }} </td>
+      <ng-container *ngFor="let col of columns; let i = index" [matColumnDef]="col.id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="!col.sortable">{{ col.label }}</th>
+        <td mat-cell *matCellDef="let element">{{ element[col.field] }}</td>
       </ng-container>
 
       <!-- Rows Definitions -->
       <tr mat-header-row *matHeaderRowDef="displayedColumnsIds; sticky: true" class="header-row"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumnsIds;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumnsIds"></tr>
     </table>
-
   </div>
 </section>
